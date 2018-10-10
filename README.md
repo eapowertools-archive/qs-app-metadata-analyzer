@@ -38,9 +38,10 @@ Example output from that endpoint can be seen [here](https://s3.amazonaws.com/dp
 ## Setup
 
 1. Import the qvf into the QMC.
-2. Grant **'Read'** access to the **'monitor_apps_REST_app'** data connection in the QMC to the user that will be reloading the application. Ensure that the user can now see this connection in the Data Load Editor. Occasionally this may take a services restart to take effect.
+2. Grant **'Read'** access to the **'monitor_apps_REST_app'** data connection in the QMC to the user that will be reloading the application if you plan on reloading the app from the Hub. Ensure that the user can see this connection in the Data Load Editor. Occasionally this takes a services restart to take effect.
 3. Ensure that the Qlik Sense service account has **'RootAdmin'** access. The **'monitor_apps_REST_app'** data connection is reloaded by the service account, and that account needs access to specific resources via the QRS API that are not available otherwise.
-4. Reload the application.
+4. Reload the application either via a Task in the QMC or as a user other than the service account from the Hub. If you are also logged in as the service account and triggering the reload from the Hub, you may see access pass errors.
+
 
 ## Treshold Settings
 There are a number of configurable settings in the **Tresholds & Settings** section of the load script. These thresholds are used to create boolean fields in the data model that are then filterable and highlighted throughout the app. Please set these accordingly to your own standards of what your organization wants to maintain for an easier view of outliers. These settings are:
