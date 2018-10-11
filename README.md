@@ -23,9 +23,9 @@ You can view this application metadata within your own June 2018+ environment at
 http(s)://{server}/api/v1/apps/{GUID}/data/metadata
 ```
 
-where *server* is your Qlik Sense Enterprise server and *GUID* is the application ID. Note that the application does not need to be lifted into RAM for the metadata to be accessed.
+where *{server}* is your Qlik Sense Enterprise server and *{GUID}* is the application ID. Note that the application does not need to be lifted into RAM for the metadata to be accessed.
 
-Data from this endpoint includes:
+Data from this endpoint is derived as part of the app reload process, and therefore does not include any object or expression related metadata. The data from the endpoint includes:
 - server metadata including number of server cores, total server RAM
 - reload time
 - app RAM base footprint
