@@ -16,7 +16,11 @@ A Qlik Sense application that iterates over app metadata endpoints in combinatio
  
 ## About
 
-As of the Qlik Sense June 2018 release, a new application level metadata endpoint is available. Data is populated for this endpoint per app post-reload in a June 2018+ environment. This Qlik application iterates over every application metadata endpoint along with several other QRS calls (Nodes, Apps, Proxies, LB audit), ultimately providing a comprehensive dashboard to analyze your application metadata server-wide. This allows you to have a holistic view of the makeup of all of your Qlik applications, eanbling you to have awareness at a granular level of the types of application in your organization. This application is 100% native to Qlik without any installer, and is easy to configure within the Qlik Sense Enterprise environment.
+As of the Qlik Sense June 2018 release, a new application level metadata endpoint is available. Data is populated for this endpoint per app post-reload in a June 2018+ environment. 
+
+**_App Metadata Analyzer (Server)_**: This Qlik application iterates over every application metadata endpoint along with several other QRS calls (Nodes, Apps, Proxies, LB audit), ultimately providing a comprehensive dashboard to analyze your application metadata server-wide. This allows you to have a holistic view of the makeup of all of your Qlik applications, eanbling you to have awareness at a granular level of the types of application in your organization. This application is 100% native to Qlik without any installer, and is easy to configure within the Qlik Sense Enterprise environment as the app takes advantage of the existing **'monitor_apps_REST_app'** connection to drive all of the REST calls.
+
+**_App Metadata Analyzer (Single)_**: This Qlik application is designed to target a single metadata endpoint, driven by several variables in the load script that the user can populate manually. This app uses a single REST connection out to the metadata endpoint using the **'monitor_apps_REST_app'** connection, however the REST connection could easily be recreated manually if that is not desired.
 
 You can view this application metadata within your own June 2018+ environment at:
 ```
@@ -37,11 +41,17 @@ Example output from that endpoint can be seen [here](https://s3.amazonaws.com/dp
 
 ## Setup
 
+**_App Metadata Analyzer (Server)_**:
 1. Import the qvf into the QMC.
 2. Grant **'Read'** access to the **'monitor_apps_REST_app'** data connection in the QMC to the user that will be reloading the application if you plan on reloading the app from the Hub. Ensure that the user can see this connection in the Data Load Editor. Occasionally this takes a services restart to take effect.
 3. Ensure that the Qlik Sense service account has **'RootAdmin'** access. The **'monitor_apps_REST_app'** data connection is reloaded by the service account, and that account needs access to specific resources via the QRS API that are not available otherwise.
 4. Reload the application either via a Task in the QMC or as a user other than the service account from the Hub. If you are also logged in as the service account and triggering the reload from the Hub, you may see access pass errors.
 
+**_App Metadata Analyzer (Single)_**:
+1. Import the qvf into the QMC.
+2. Grant **'Read'** access to the **'monitor_apps_REST_app'** data connection in the QMC to the user that will be reloading the application if you plan on reloading the app from the Hub. Ensure that the user can see this connection in the Data Load Editor. Occasionally this takes a services restart to take effect.
+3. Open up the application and navigate to the Data Load Editor. Adjust the variables in the *Settings* script section for your server, application GUID, etc.
+4. Reload the application.
 
 ## Treshold Settings
 There are a number of configurable settings in the **Tresholds & Settings** section of the load script. These thresholds are used to create boolean fields in the data model that are then filterable and highlighted throughout the app. Please set these accordingly to your own standards of what your organization wants to maintain for an easier view of outliers. These settings are:
