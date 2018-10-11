@@ -55,7 +55,7 @@ Example output from that endpoint can be seen [here](https://s3.amazonaws.com/dp
 4. Reload the application.
 
 ## Threshold Settings
-There are a number of configurable settings in the **Tresholds & Settings** section of the load script. These thresholds are used to create boolean fields in the data model that are then filterable and highlighted throughout the app. Please set these accordingly to your own standards of what your organization wants to maintain for an easier view of outliers. These settings are:
+There are a number of configurable settings in the **Tresholds & Settings** section of the load script of the App Metadata Analyzer (Server) app, as well as in the **Thresholds** section in the App Metadata Analyzer (Single) app. These thresholds are used to create boolean fields in the data model that are then filterable and highlighted throughout the app. Please set these accordingly to your own standards of what your organization wants to maintain for an easier view of outliers. These settings are:
 ```
 SET vAppDiskSizeThreshold = 524288000; // 500 MB
 SET vAppRAMSizeThreshold = 1073751824; // 1 GB
@@ -66,6 +66,21 @@ SET vFieldValueCountThreshold = 10000000; // Number of field records
 SET vFieldCardinalityThreshold = 1000000; // Number of distinct field values
 SET vNoOfFields = 150; // Number of Distinct Fields
 SET vReloadTimeThreshold = 1800000; // 30 Minutes
+```
+
+In the App Metadata Analyzer (Single) app, there is an additional **Settings** script section, where you are required to fill in several variables that will ultimately direct the REST connection to the target app. These settings are (including examples):
+```
+// SET LOCATION
+SET vLocation = 'https://qliksenseserver';
+
+// SET APP NAME
+SET vAppName = 'Your App Name';
+
+// SET APP GUID
+SET vAppGUID = '120d6e16-b913-4e68-b2a0-cb9784d3e886';
+
+// SET APP DISK SIZE IN MB
+SET vDiskSize = 425;
 ```
 
 ## Screenshots
