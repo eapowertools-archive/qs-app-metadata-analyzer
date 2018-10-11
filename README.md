@@ -38,6 +38,8 @@ Example output from that endpoint can be seen [here](https://s3.amazonaws.com/dp
 
 **_App Metadata Analyzer (Single)_**: This Qlik application is designed to target a single metadata endpoint, driven by several variables in the load script that the user can populate manually. This app uses a single REST connection out to the metadata endpoint using the **'monitor_apps_REST_app'** connection, however the REST connection could easily be recreated manually if that is not desired.
 
+**_Hosted App Metadata Analyzer (Single)_**: A hosted version of this application also exists where you can simply paste the JSON response from a single endpoint and generate an app on the fly. This version can be found here: [here](https://diagnostictoolkit.qlikpoc.com/#applicationMetadataAnalyzer)
+
 ## Setup
 
 **_App Metadata Analyzer (Server)_**:
