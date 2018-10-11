@@ -52,7 +52,7 @@ Example output from that endpoint can be seen [here](https://s3.amazonaws.com/dp
 3. Open up the application and navigate to the Data Load Editor. Adjust the variables in the *Settings* script section for your server, application GUID, etc.
 4. Reload the application.
 
-## Treshold Settings
+## Threshold Settings
 There are a number of configurable settings in the **Tresholds & Settings** section of the load script. These thresholds are used to create boolean fields in the data model that are then filterable and highlighted throughout the app. Please set these accordingly to your own standards of what your organization wants to maintain for an easier view of outliers. These settings are:
 ```
 SET vAppDiskSizeThreshold = 524288000; // 500 MB
