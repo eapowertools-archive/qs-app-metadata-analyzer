@@ -1,3 +1,6 @@
+# Status
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+
 # qs-app-metadata-analyzer
 Qlik Sense applications that ingest Qlik app metadata endpoints in combination with QRS API calls providing a holistic view of your application metadata across your site and/or of a single app.
 
