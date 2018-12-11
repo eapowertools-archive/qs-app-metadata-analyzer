@@ -62,15 +62,10 @@ Example output from that endpoint can be seen [here](https://s3.amazonaws.com/dp
 ## Threshold Settings
 Along with the mandatory _vCentralHostname_ variable, there are a number of optional configurable settings in the **Tresholds & Settings** section of the load script of the App Metadata Analyzer (Server) app, as well as in the **Thresholds** section in the App Metadata Analyzer (Single) app. These thresholds are used to create boolean fields in the data model that are then filterable and highlighted throughout the app. Please set these accordingly to your own standards of what your organization wants to maintain for an easier view of outliers. These settings are:
 ```
-//////////////////////////////////////////////////
-// Central Node Hostname /////////////////////////
-LET vCentralHostname = 'qliksenseserver';       //
-//////////////////////////////////////////////////
+// Central Node Hostname
+LET vCentralHostname = 'qliksenseserver';
 
-
-//////////////////////////////////////////////////
-// Thresholds ////////////////////////////////////
-//////////////////////////////////////////////////
+// Thresholds 
 SET vAppDiskSizeThreshold = 524288000; 			// 500 MB
 SET vAppRAMSizeThreshold = 1073751824; 			// 1 GB
 SET vRAMToFileSizeRatioThreshold = 6; 			// RAM / File Size is typically between 4-6x
@@ -80,22 +75,13 @@ SET vFieldValueCountThreshold = 10000000; 		// Number of field records
 SET vFieldCardinalityThreshold = 1000000; 		// Number of distinct field values
 SET vNoOfFields = 150; 							// Number of Distinct Fields
 SET vReloadTimeThreshold = 1800000; 			// 30 Minutes
-//////////////////////////////////////////////////
 
+// App Last Reloaded Time Interval Match Months
+SET vMonthsInInterval = 3;	// How many months apart you want to bucket reload times in for IntervalMatch
 
-//////////////////////////////////////////////////
-// App Last Reloaded Time Interval Match Months //
-//////////////////////////////////////////////////
-SET vMonthsInInterval = 3;						// How many months apart you want to bucket reload times in for IntervalMatch
-//////////////////////////////////////////////////
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// Incremental Load Settings ///////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////
-SET vIncremental = 0; 																			  // Incremental load flag -- set to 1 to engage
-SET vMetadataQVDFolderLocation = 'LIB://Builds (qlik_qservice)/AppMetadataQVDs/'; 				  // where you want your QVD files to be stored (note the trailing slash)
-////////////////////////////////////////////////////////////////////////////////////////////////////
+// Incremental Load Settings 
+SET vIncremental = 0;	// Incremental load flag -- set to 1 to engage
+SET vMetadataQVDFolderLocation = 'LIB://Builds (qlik_qservice)/AppMetadataQVDs/';	// where you want your QVD files to be stored (note the trailing slash)
 ```
 
 In the **App Metadata Analyzer (Single)** app, there is an additional **Settings** script section, where you are required to fill in several variables that will ultimately direct the REST connection to the target app. These settings are (including examples):
